@@ -27,4 +27,13 @@ describe('AppComponent', () => {
     const app = fixture.debugElement.componentInstance;
     expect(app.name).toEqual('Manuel');
   });
+
+  it(`should change the 'name' when changeName() is called`, () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.debugElement.componentInstance;
+    const newName = 'NewName';
+    expect(app.name).not.toBe(newName);
+    app.changeName(newName);
+    expect(app.name).toBe(newName);
+  });
 });
